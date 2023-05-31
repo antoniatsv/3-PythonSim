@@ -329,7 +329,7 @@ def train_RF_and_get_predictions_fnc(mean_train_data, mean_vali_data, test_data)
     Z_star_train = df_train[[col for col in df_train if 'Z_' in col]].values
     Y_train = df_train['Y'].values
     
-    clf = RandomForestClassifier()
+    clf = RandomForestClassifier(max_depth=5)
     clf.fit(Z_star_train, Y_train)
     
     RF_Y_hat_train = clf.predict_proba(Z_star_train)[:, 1]
